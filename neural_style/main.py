@@ -27,7 +27,7 @@ output_image = "/app/streamlit-style-transfer/neural_style/images/output-images/
 
 with col1:
     image = Image.open(input_image)
-    st.image(image, caption='Source Image') # image: numpy array
+    st.image(image, caption='Source Image', use_column_width=True) # image: numpy array
     clicked = st.button('Stylize')
     
 with col2:
@@ -36,5 +36,5 @@ with col2:
         style.stylize(model, input_image, output_image)
 
         image = Image.open(output_image)
-        st.image(image, caption='Output Image')
+        st.image(image, caption='Output Image', use_column_width=True)
 
