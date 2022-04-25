@@ -7,13 +7,6 @@ import streamlit as st
 from PIL import Image
 
 import style
-
-def get_image_download_link(img,filename,text):
-    buffered = BytesIO()
-    img.save(buffered, format="PNG")
-    img_str = base64.b64encode(buffered.getvalue()).decode()
-    href =  f'<a href="data:file/txt;base64,{img_str}" download="{filename}">{text}</a>'
-    return href
     
 col1, col2, = st.columns(2)
 
@@ -44,6 +37,9 @@ with col2:
 
         image = Image.open(output_image)
         st.image(image, caption='Output Image', use_column_width=True)
-        result = Image.fromarray(output_image)
-        st.markdown(get_image_download_link(result, img_file.name,'Download '+img_file.name), unsafe_allow_html=True)
+        btn = st.download_button(
+          label="Download image",
+          data=img,
+          file_name="imagename.png",
+          mime="image/png")
 
