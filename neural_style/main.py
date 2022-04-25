@@ -8,7 +8,10 @@ from PIL import Image
 
 import style
 
-st.title('PyTorch Style Transfer')
+col1, col2, = st.columns(2)
+
+with st.container():
+    st.title('PyTorch Style Transfer')
 
 img = st.sidebar.selectbox(
     'Select Image',
@@ -25,17 +28,18 @@ model= "/app/streamlit-style-transfer/neural_style/saved_models/" + style_name +
 input_image = "/app/streamlit-style-transfer/neural_style/images/content-images/" + img
 output_image = "/app/streamlit-style-transfer/neural_style/images/output-images/" + style_name + "-" + img
 
-st.write('### Source image:')
-image = Image.open(input_image)
-st.image(image, width=400) # image: numpy array
+with col1:
+    st.write('### Source image:')
+    image = Image.open(input_image)
+    st.image(image, width=400) # image: numpy array
 
-clicked = st.button('Stylize')
+    clicked = st.button('Stylize')
+with col2:
+    if clicked:
+        model = style.load_model(model)
+        style.stylize(model, input_image, output_image)
 
-if clicked:
-    model = style.load_model(model)
-    style.stylize(model, input_image, output_image)
-
-    st.write('### Output image:')
-    image = Image.open(output_image)
-    st.image(image, width=400)
+        st.write('### Output image:')
+        image = Image.open(output_image)
+        st.image(image, width=400)
 
