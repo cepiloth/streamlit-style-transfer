@@ -10,9 +10,7 @@ import style
 
 col1, col2, = st.columns(2)
 
-with st.container():
-    st.title('PyTorch Style Transfer')
-
+col1.subheader('PyTorch Style Transfer')
 img = st.sidebar.selectbox(
     'Select Image',
     ('amber.jpg', 'cat.png')
@@ -31,7 +29,7 @@ output_image = "/app/streamlit-style-transfer/neural_style/images/output-images/
 with col1:
     st.write('### Source image:')
     image = Image.open(input_image)
-    st.image(image, width=400) # image: numpy array
+    st.image(image) # image: numpy array
 
     clicked = st.button('Stylize')
 with col2:
@@ -41,5 +39,5 @@ with col2:
 
         st.write('### Output image:')
         image = Image.open(output_image)
-        st.image(image, width=400)
+        st.image(image)
 
