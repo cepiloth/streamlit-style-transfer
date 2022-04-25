@@ -17,7 +17,7 @@ img = st.sidebar.selectbox(
 
 style_name = st.sidebar.selectbox(
     'Select Style',
-    ('candy', 'mosaic', 'rain_princess', 'udnie')
+    ('candy', 'mosaic', 'rain_princess', 'udnie', 'Hayao_net_G_float')
 )
 
 
