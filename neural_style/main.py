@@ -37,5 +37,5 @@ with col2:
         style.stylize(model, input_image, output_image)
 
         image = Image.open(output_image)
-        st.image(image, , caption='Output Image')
+        st.image(image, caption='Output Image')
 
