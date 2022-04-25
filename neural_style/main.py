@@ -39,7 +39,7 @@ with col2:
         st.image(image, caption='Output Image', use_column_width=True)
         btn = st.download_button(
           label="Download image",
-          data=img,
+          data=output_image,
           file_name="imagename.png",
           mime="image/png")
 
