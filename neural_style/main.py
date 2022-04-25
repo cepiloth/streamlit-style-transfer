@@ -37,10 +37,9 @@ with col2:
 
         image = Image.open(output_image)
         st.image(image, caption='Output Image', use_column_width=True, output_format='PNG')
-        img = Image.open(output_image)
         btn = st.download_button(
           label="Download image",
-          data=img,
+          data=image,
           file_name="imagename.png",
           mime="image/png")
 
