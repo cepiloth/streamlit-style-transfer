@@ -10,7 +10,6 @@ import style
 
 col1, col2, = st.columns(2)
 
-col1.subheader('PyTorch Style Transfer')
 img = st.sidebar.selectbox(
     'Select Image',
     ('amber.jpg', 'cat.png')
