@@ -37,4 +37,11 @@ with col2:
 
         image = Image.open(output_image)
         st.image(image, caption='Output Image', use_column_width=True)
+        with open("flower.png", "rb") as file:
+        btn = st.download_button(
+            label="Download image",
+            data=image,
+            file_name="flower.png",
+            mime="image/png"
+        )
 
