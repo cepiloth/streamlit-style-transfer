@@ -36,10 +36,10 @@ with col2:
         style.stylize(model, input_image, output_image)
 
         image = Image.open(output_image)
-        st.image(image, caption='Output Image', use_column_width=True)
+        st.image(image, caption='Output Image', use_column_width=True, output_format='PNG')
         btn = st.download_button(
           label="Download image",
-          data=image,
+          data=output_image,
           file_name="imagename.png",
           mime="image/png")
 
