@@ -17,9 +17,8 @@ img = st.sidebar.selectbox(
 
 style_name = st.sidebar.selectbox(
     'Select Style',
-    ('candy', 'mosaic', 'rain_princess', 'udnie', 'Hayao_net_G_float')
+    ('candy', 'mosaic', 'rain_princess', 'udnie')
 )
-
 
 model= "/app/streamlit-style-transfer/neural_style/saved_models/" + style_name + ".pth"
 input_image = "/app/streamlit-style-transfer/neural_style/images/content-images/" + img
